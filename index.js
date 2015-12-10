@@ -23,13 +23,18 @@ request({
         console.log(translation[i]['children'][0].data);
     }
 
-    var size = $('#tEETrans .trans-container ul').length;
+    console.log("English Translation: \n");
 
-    console.log("English Translation: \n")
-    for (var i = 0; i < size; i++) {
-        var order = i + 1;
-        console.log(i + ". " + eTranslation[i]['children'][0].data + " " + eDiscription[i]['children'][0].data);
-        console.log("\n  " + eExplanation[i]['children'][0].data);
+    for (var i = 0; i < eTranslation.length; i++) {
+        console.log(eTranslation[i]['children'][0].data);
+    }
+
+    for (var i = 0; i < eDiscription.length; i++) {
+        console.log(eDiscription[i]['children'][0].data);
+    }
+   
+    for (var i = 0; i < eExplanation.length; i++) {
+        console.log(eExplanation[i]['children'][0].data);
     }
   } 
 });
