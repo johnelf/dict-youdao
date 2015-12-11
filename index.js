@@ -7,6 +7,14 @@ request({
 }, function(error, response, body) {
   if (!error && response.statusCode == 200) {
     var $ = cheerio.load(body);
+
+    var error = $('.error-wrapper');
+
+    if (error.length > 0) {
+        console.log("Could not find corresponding translations.");
+        process.exit();
+    }
+    
     var pronounce = $('#phrsListTab .phonetic'),
         additional = $('#phrsListTab .additional'),
         translation = $('#phrsListTab ul li'),
