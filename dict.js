@@ -10,17 +10,26 @@ request({
   if (!error && response.statusCode == 200) {
     var $ = cheerio.load(body);
 
-    var error = $('.error-wrapper');
+    var error = $('.error-wrapper'),
+        chineseToEnglish = $('#phrsListTab .contentTitle'),
+        cTranslation = $('#phrsListTab .trans-container ul li');
 
-    var cTranslation = $('#phrsListTab .trans-container li');
-
-    if (error.length > 0 || $('#phrsListTab .phonetic').length <= 0) {
-
-        if (cTranslation.length > 0) {
-            console.log(cTranslation[0]['children'][0].data);
-            process.exit();
-        }
+    if (error.length > 0) {
         console.log("Could not find corresponding translations.");
+        process.exit();
+    }
+
+    if (cTranslation.length > 0) {
+        for(var i = 0; i < cTranslation.length; i++) {
+            console.log(cTranslation[i]['children'][0].data);
+        }
+        process.exit();
+    }
+
+    if (chineseToEnglish.length > 0) {
+        for(var i = 0; i < chineseToEnglish.length; i++) {
+            console.log(chineseToEnglish[i]['children'][0].data);
+        }
         process.exit();
     }
     
