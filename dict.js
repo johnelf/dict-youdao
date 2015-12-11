@@ -12,7 +12,14 @@ request({
 
     var error = $('.error-wrapper');
 
-    if (error.length > 0) {
+    var cTranslation = $('#phrsListTab .trans-container li');
+
+    if (error.length > 0 || $('#phrsListTab .phonetic').length <= 0) {
+
+        if (cTranslation.length > 0) {
+            console.log(cTranslation[0]['children'][0].data);
+            process.exit();
+        }
         console.log("Could not find corresponding translations.");
         process.exit();
     }
