@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var args = process.argv.slice(2),
     cheerio = require('cheerio'),
     request = require("request");
