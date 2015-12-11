@@ -1,10 +1,10 @@
 # dict-youdao
 不用离开terminal就可以查单词了
 
-# 工作原理
+# How it works
 通过查询有道的网页，用cheerio抓取html内容并解析，目前只支持中英文的单词互译，*不支持句子*
 
-# 如何使用
+# How to use it
 需要预装node
 
 ```bash
